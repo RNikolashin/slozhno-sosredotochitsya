@@ -5,8 +5,8 @@
 */
 
 .page.theme_dark {
-  --color-bg: var(--color-blue-50);
-  --color-primary: var(--color-pink-400);
-  --color-secondary: var(--color-pink-300);
-  --color-font: var(--color-pink-600);
+  /* сохраните этот селектор в приведённом виде.
+    Так стили написанные ниже будут иметь больший вес,
+    чем стили в медиазапросе предпочтений пользователя
+  */
 }

@@ -1,27 +1,15 @@
 /* Глобальные стили для проекта, их можно дополнять и менять по желанию */
+
 *,
 *::before,
 *::after {
   box-sizing: border-box;
 }
 
-html {
-  font-family: "IBM Plex Mono", monospace;
-}
-
 body {
   min-inline-size: 375px;
   max-inline-size: 1440px;
   margin: 0 auto;
-  --padding: 0.625rem;
-  font-size: 1.125rem;
-  color: var(--color-font);
-  background-color: var(--color-bg);
-}
-
-img {
-  max-width: 100%;
-  height: auto;
 }
 
 h1,
