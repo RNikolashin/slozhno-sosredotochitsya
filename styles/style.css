@@ -2,4 +2,429 @@
 
 .page {
   /* сохраните в разметке и стилях класс page. На его основе работает скрипт. */
+  font-family: "IBM Plex mono", sans-serif;
+  line-height: 23.4px;
+  font-weight: 400;
+  font-size: 18px;
+  color: var(--text-color);
+  background-color: var(--backround-color);
+}
+
+.container {
+  padding: 0 0.65rem;
+}
+
+@media (min-width: 768px) {
+  .container {
+    padding: 1.25rem;
+  }
+}
+
+.title-decor {
+  color: var(--accent-text-color);
+  font-weight: 700;
+  background-color: var(--accent-color);
+  font-size: 18px;
+}
+
+/* --- ШАПКА ---*/
+
+.header {
+  position: relative;
+  display: grid;
+  min-inline-size: 375px;
+  block-size: 100vh;
+  background-image: url(/images/cover-image-dark.png);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  grid-template-rows: repeat(3, 1fr);
+}
+
+.header__theme-menu {
+  display: flex;
+  align-self: center;
+  justify-content: end;
+  margin-block-start: 17px;
+}
+
+.header__theme-menu-list {
+  inline-size: 70px;
+  block-size: 98px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.header__theme-menu-item {
+  block-size: 26px;
+}
+
+.header__title {
+  font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
+  color: var(--header-title-text-color);
+  text-shadow: 4px 4px 0 var(--text-shadow-color);
+  line-height: 0.8;
+  margin-block-start: 14px;
+}
+
+.header__content {
+  font-size: inherit;
+  max-block-size: 117px;
+  max-inline-size: 355px;
+  margin-block-start: 26px;
+}
+
+/* --- КНОПКИ --- */
+
+.header__theme-menu-button {
+  color: var(--button-text-color);
+  text-align: center;
+  text-transform: lowercase;
+  border-width: 1px;
+  border-style: solid;
+  border-color: transparent;
+  background-color: transparent;
+  padding: 0 0.725em;
+  height: 1.625rem;
+  cursor: pointer;
+  outline: none;
+}
+
+.header__theme-menu-button:focus {
+  outline: none;
+}
+
+.header__theme-menu-button:focus-visible {
+  border-color: transparent;
+  border-bottom-color: var(--color-pink-rgb);
+}
+
+.header__theme-menu-button:hover {
+  border-color: rgba(var(--color-pink-rgb), 0.5);
+}
+
+.header__theme-menu-button_active {
+  border-color: var(--color-pink-rgb);
+  cursor: default;
+  pointer-events: none;
+}
+
+/* --- ДЕКОР И БЛОК REC --- */
+
+.header__rec-point {
+  position: relative;
+}
+
+.header::before {
+  content: "";
+  position: absolute;
+  inset-inline-end: 10px;
+  inset-block-start: 10px;
+  width: 25px;
+  height: 25px;
+  border-right: 1px solid var(--accent-color);
+  border-top: 1px solid var(--accent-color);
+}
+
+.header::after {
+  content: "";
+  position: absolute;
+  inset-block-end: 30px;
+  inset-inline-start: 10px;
+  width: 25px;
+  height: 25px;
+  border-left: 1px solid var(--accent-color);
+  border-bottom: 1px solid var(--accent-color);
+}
+
+.header__rec-point::before {
+  content: "rec";
+  text-transform: uppercase;
+  color: var(--accent-color);
+  position: absolute;
+  inset-inline-end: 39px;
+  inset-block-start: 10px;
+  font-size: var(--font-size);
+  font-weight: 400;
+  line-height: 25px;
+  z-index: 1;
+}
+
+.header__rec-point::after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  inline-size: 9px;
+  block-size: 9px;
+  background-color: var(--accent-color);
+  border-radius: 50%;
+  inset-inline-end: 19px;
+  inset-block-start: 18px;
+  box-shadow: 0 0 4px var(--accent-color);
+  border-inline-end: 1px solid var(--accent-color);
+}
+
+/* --- МЕДИА ДЛЯ ШАПКИ --- */
+
+@media screen and (min-width: 768px) {
+  .header::before {
+    inset-inline-end: 20px;
+    inset-block-start: 20px;
+  }
+  .header::after {
+    inset-block-end: 20px;
+    inset-inline-start: 20px;
+  }
+
+  .header__rec-point::before {
+    inset-block-start: 20px;
+    inset-inline-end: 50px;
+  }
+
+  .header__rec-point::after {
+    inset-inline-end: 29px;
+    inset-block-start: 28px;
+  }
+
+  .header__theme-menu {
+    margin-block-start: 110px;
+  }
+
+  .header__title {
+    font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
+    align-self: center;
+    justify-self: start;
+    margin: 0;
+    margin-inline-start: -20px;
+  }
+
+  .header__content {
+    max-inline-size: 50%;
+    justify-self: end;
+    margin-block-start: 50px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .header__theme-menu {
+    justify-content: center;
+    margin: 0;
+    margin-block-end: 218px;
+  }
+
+  .header__theme-menu-list {
+    flex-direction: row;
+    inline-size: 230px;
+    block-size: 26px;
+    padding-top: 0;
+  }
+
+  .header__content {
+    max-block-size: 28%;
+    margin-block-start: 58px;
+  }
+}
+
+/* --- ОСНОВНОЙ КОНТЕНТ --- */
+
+.link {
+  position: relative;
+  color: inherit;
+  text-shadow: 2px 2px var(--accent-color);
+  text-decoration: none;
+  outline: none;
+}
+
+.link:hover::after {
+  content: "";
+  position: absolute;
+  height: 1px;
+  bottom: 0;
+  left: 0;
+  background-color: currentColor;
+  width: 100%;
+}
+
+.link:focus-visible {
+  outline: 1px solid currentColor;
+}
+
+.content-section {
+  padding-block: 25px;
+}
+
+.content-section:first-child {
+  padding-block-start: 20px;
+}
+
+.content-section:last-child {
+  padding-block-end: 2.5rem;
+  padding-block-start: 6px;
+}
+
+@media screen and (min-width: 768px) {
+  .content-section-wide {
+    display: grid;
+    grid-template-columns: 14.75rem 1fr;
+    gap: 1.25rem;
+  }
+
+  .content-section {
+    padding-block: 30px;
+  }
+
+  .content-section:first-child {
+    padding-block-start: 40px;
+  }
+
+  .content-section:last-child {
+    padding-block-start: 30px;
+  }
+
+  .title {
+    padding-block-start: 20px;
+    max-inline-size: 230px;
+    font-size: inherit;
+    color: var(--accent-color);
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .content-section-compact > .topic-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+  }
+
+  .content-section-wide {
+    display: grid;
+    grid-template-columns: 315px 1fr;
+    gap: 1.25rem;
+  }
+
+  .title {
+    padding-block-start: 20px;
+    max-inline-size: 315px;
+  }
+}
+
+.topic__title {
+  margin: 1.25rem 0 0.625rem;
+  font-size: inherit;
+}
+
+.topic__subtitle {
+  font-weight: 400;
+  margin: 1.25rem 0 0.625rem;
+}
+
+.topic-list__item {
+  margin-top: 1.25rem;
+}
+
+/* --- КАРТИНКИ --- */
+
+.image-grid {
+  display: grid;
+  gap: 0.625rem;
+}
+
+.image-grid__item {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+@media screen and (min-width: 768px) {
+  .image-grid {
+    gap: 1.563rem;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 192px 230px 318px;
+    grid-template-areas:
+      "sky sky meal"
+      "music books meal"
+      "music street street";
+  }
+
+  .image-grid__item:nth-child(1) {
+    grid-area: sky;
+  }
+
+  .image-grid__item:nth-child(2) {
+    grid-area: meal;
+  }
+
+  .image-grid__item:nth-child(3) {
+    grid-area: music;
+  }
+
+  .image-grid__item:nth-child(4) {
+    grid-area: books;
+  }
+
+  .image-grid__item:nth-child(5) {
+    grid-area: street;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .image-grid {
+    grid-template-rows: 260px 315px 428px;
+  }
+}
+
+.footer {
+  position: relative;
+  min-inline-size: 375px;
+  block-size: 100vh;
+  display: flex;
+  justify-content: center; /* Выравнивание по горизонтали */
+  align-items: center; /* Выравнивание по вертикали */
+}
+
+.footer::before {
+  content: "";
+  position: absolute;
+  inset-inline-end: 10px;
+  inset-block-start: 10px;
+  width: 25px;
+  height: 25px;
+  border-right: 1px solid var(--accent-color);
+  border-top: 1px solid var(--accent-color);
+}
+
+.footer::after {
+  content: "";
+  position: absolute;
+  inset-block-end: 28px;
+  inset-inline-start: 10px;
+  width: 25px;
+  height: 25px;
+  border-left: 1px solid var(--accent-color);
+  border-bottom: 1px solid var(--accent-color);
+}
+
+.footer__content {
+  font-family: inherit;
+  font-weight: bold;
+  font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
+  color: var(--header-title-text-color);
+  text-shadow: 4px 4px 0 var(--text-shadow-color);
+  padding-block-end: 15px;
+}
+
+@media screen and (min-width: 768px) {
+  .footer::before {
+    inset-inline-end: 20px;
+    inset-block-start: 39px;
+  }
+  .footer::after {
+    inset-block-end: 0px;
+    inset-inline-start: 20px;
+  }
+
+  .footer__content {
+    padding-block-start: 53px;
+  }
 }
